@@ -13,21 +13,25 @@
 cd $HOME
 git clone https://github.com/CodeLua/TabLiqGar.git
 cd TabliqGar
+chmod +x install
 chmod +x start
+./install
 ./start
 # سپس شماره و کد را ارسال کنید :)
 # اجرای اتولانچ:
 cd TabliqGar
 chmod 777 screen
+chmod +x install
+./install
 screen ./screen
 ```
 ### نصب آسان
 ```sh
-cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod +x start && ./start
+cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod +x install && chmod +x start && ./install && ./start
 
 نصب آ سان اتولانچ
 
-cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod 777 screen && screen ./screen
+cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod 777 screen && chmod +x install && ./install && screen ./screen
 
 * * *
 ```
