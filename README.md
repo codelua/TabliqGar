@@ -1,4 +1,4 @@
-# [TabLiqGar V.1 (https://telegram.me/CerNerTabliqGar)
+# [TabLiqGar V.1 ](https://telegram.me/CerNerTabliqGar)
 
 * * *
 
@@ -30,11 +30,11 @@ cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar &
 cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod 777 screen && screen ./screen
 
 * * *
-
+```
 # نویسنده!
 
 [Amir]([Telegram](https://telegram.me/CodeLua)
 
 ### کانال تیم:
 
-[@BeyondTeam](https://telegram.me/CerNer_Tm)
+[CerNer Team](https://telegram.me/CerNer_Tm)
