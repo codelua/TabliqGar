@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
----@CerNer_Team
-wget "https://valtman.name/files/telegram-cli-1222"
-mv telegram-cli-1222 tg
-chmod 777 tg
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson* libpython-dev make autoconf unzip git redis-server g++ -y ?force-yes
 sudo apt-get install libreadline-dev libssl-dev lua5.2 liblua5.2-dev git make unzip redis-server curl libcurl4-gnutls-dev
 wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz
