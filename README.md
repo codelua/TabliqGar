@@ -1,4 +1,4 @@
-# [TabLiqGar V.1 ((https://telegram.me/CerNerTabliqGar)
+# [TabLiqGar V.1 (https://telegram.me/CerNerTabliqGar)
 
 * * *
 
