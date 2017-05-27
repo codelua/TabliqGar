@@ -2,8 +2,6 @@ tabchi = dofile('./bot/funcation.lua')
 --------------------------------
 tabchi_id = 302538792
 ---------------------------------
- utf8 = dofile('./bot/utf8.lua')
----------------------------------
 json = dofile('./libs/JSON.lua')
 ---------------------------------
 URL = require "socket.url"
@@ -336,7 +334,7 @@ if is_sudo(msg) then
           end
 if text and text:match('^leave(-100)(%d+)$') then
 local leave = text:match('leave(-100)(%d+)$') 
-       cernerbot.sendText(msg.chat_id_,msg.id_,1,'ÑÈÇÊ ÈÇ ãæİŞíÊ ÇÒ Ñæå '..leave..' ÎÇÑÌ ÔÏ.',1,'md')
+       cernerbot.sendText(msg.chat_id_,msg.id_,1,'é¨í•„ í›Œ æ–°ç¹ƒç¶½ í•  Âï¤˜ '..leave..' æ› ç·Š å†¬.',1,'md')
      cernerbot.changeChatMemberStatus(leave, tabchi_id, "Left")
   end
   if text == 'bcco' and tonumber(msg.reply_to_message_id_) > 0 and is_sudo(msg) then
