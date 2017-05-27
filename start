@@ -19,5 +19,5 @@ if [ ! -f ./tg ]; then
    echo -e "                        Marathon Team                            "
    echo -e "\033[0;00m"
    echo -e "\e[36m"
-curl "https://api.telegram.org/bot349462094:AAGylhFoeuWZGVcaKcAovh7YkPIFJazhcqY/sendmessage" -F "chat_id=-" -F "text=CERNER BOT IS NOW RUNNING "
+curl "https://api.telegram.org/bot349462094:AAGylhFoeuWZGVcaKcAovh7YkPIFJazhcqY/sendmessage" -F "chat_id=-" -F "text= TabLiqGar IS NOW RUNNING "
    ./tg -s ./bot/tabchi.lua
