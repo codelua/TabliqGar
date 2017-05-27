@@ -27,11 +27,11 @@ screen ./screen
 ```
 ### نصب آسان
 ```sh
-cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod +x install && chmod +x start && ./install && ./start
+git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod +x install && chmod +x start && ./install && ./start
 
 نصب آ سان اتولانچ
 
-cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod 777 screen && chmod +x install && ./install screen ./screen
+git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar && chmod 777 screen && chmod +x install && ./install screen ./screen
 
 * * *
 ```
