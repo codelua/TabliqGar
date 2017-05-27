@@ -8,10 +8,8 @@
 |--------------------|
 | [#!/]help | just send help in your group and get the commands |
 
-# Installation
-
+# نصب ربات
 ```sh
-# Let's install the bot.
 cd $HOME
 git clone https://github.com/CodeLua/TabLiqGar.git
 cd TabliqGar
