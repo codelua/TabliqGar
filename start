@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+cd $HOME/cerner
+function print_logo() {
+	echo -e "\033[38;5;600m"
+	echo -e "          cerner NewTg"
+	echo -e "\n\e[36m"
+}
+
+if [ ! -f ./tg ]; then
+    echo "tg not found"
+    echo "Run $0 install"
+    exit 1
+ fi
+
+ 
+  print_logo
+   echo -e "\033[38;5;208m"
+   echo -e "                        Marathon Team                            "
+   echo -e "\033[0;00m"
+   echo -e "\e[36m"
+curl "https://api.telegram.org/bot349462094:AAGylhFoeuWZGVcaKcAovh7YkPIFJazhcqY/sendmessage" -F "chat_id=-" -F "text=CERNER BOT IS NOW RUNNING "
+   ./tg -s ./bot/tabchi.lua

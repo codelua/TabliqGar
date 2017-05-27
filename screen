@@ -1,0 +1,7 @@
+#!/bin/bash
+COUNTER=1
+while(true) do
+ ./start
+curl "https://api.telegram.org/bot349462094:AAGylhFoeuWZGVcaKcAovh7YkPIFJazhcqY/sendmessage" -F "chat_id=-1001090471377" -F "text=CerNer {APIBot} NOW RUNNING"
+let COUNTER=COUNTER+1 
+done
