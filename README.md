@@ -33,7 +33,7 @@ cd $HOME && git clone https://github.com/CodeLua/TabLiqGar.git && cd TabLiqGar &
 ```
 # نویسنده!
 
-[Amir]([Telegram](https://telegram.me/CodeLua)
+[Amir](https://telegram.me/CodeLua)
 
 ### کانال تیم:
 
