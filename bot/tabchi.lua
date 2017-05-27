@@ -165,7 +165,7 @@ d:del('tgp')
 tabchi.sendText(msg.sender_user_id_, 0, 1,'*Done \nthe bot ad trader from all groups your exited*', 1, 'md')
    print("Tabchi [ Message ]")
       end
-if text == 'gpanel' and is_sudo(msg) then
+if text == 'panel' and is_sudo(msg) then
 local gps = d:scard("tsgps") or 0
 local user = d:scard("tusers")
 local gp = d:scard("tgp") or 0
