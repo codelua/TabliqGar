@@ -155,6 +155,17 @@ tabchi.sendText(msg.sender_user_id_, 0, 1,'*Done \nthe bot ad trader from all Su
    print("Tabchi [ Message ]")
 
       end
+		if text == 'addmembers' and is_sudo(msg) then
+  local pv = d:smembers("tusers")
+  for i = 1, #pv do
+    tabchi.addChatMember(msg.chat_id_, pv[i], 50)
+  end
+ local co = d:smembers("tcom")
+  for i = 1, #co do
+    tabchi.addChatMember(msg.chat_id_, co[i], 50)
+  end
+tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done\n All User & Contact Has ben Added To Group*', 1, 'md')
+ end
  if text == 'leave gp' and is_sudo(msg) then
           local list = d:smembers('tgp')
           for k,v in pairs(list) do
