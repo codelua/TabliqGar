@@ -209,7 +209,7 @@ end
             else
               co = 'Disable'
             end
-f d:get('tbanner') then
+if d:get('tbanner') then
               ban = 'Enable [300s]'
             else
               ban = 'Disable'
