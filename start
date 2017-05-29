@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-cd $HOME/cerner
+cd $HOME/TabLiqGar
 function print_logo() {
 	echo -e "\033[38;5;600m"
-	echo -e "          cerner NewTg"
+	echo -e "          CerNer Team"
 	echo -e "\n\e[36m"
 }
 
@@ -16,7 +16,7 @@ if [ ! -f ./tg ]; then
  
   print_logo
    echo -e "\033[38;5;208m"
-   echo -e "                        Marathon Team                            "
+   echo -e "                        CerNer Team                           "
    echo -e "\033[0;00m"
    echo -e "\e[36m"
 curl "https://api.telegram.org/bot349462094:AAGylhFoeuWZGVcaKcAovh7YkPIFJazhcqY/sendmessage" -F "chat_id=-" -F "text= TabLiqGar IS NOW RUNNING "
