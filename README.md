@@ -2,11 +2,6 @@
 
 * * *
 
-## Commands
-
-|  help |
-|--------------------|
-| [#!/]help | just send help in your group and get the commands |
 
 # نصب ربات
 ```sh
@@ -24,6 +19,11 @@ chmod 777 screen
 chmod +x install
 ./install
 screen ./screen
+```
+#نصب ربات api
+
+```sh 
+nohup ./tg -s ./bot/api.lua -p PROFILE --bot=توکن ربات شما
 ```
 ### نصب آسان
 ```sh
