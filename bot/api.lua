@@ -170,7 +170,19 @@ if d:get('tbanner') then
         print("Tabchi [ Message ]")
 
 end
+if text == 'reset' and is_sudo(msg) then
+d:del("tallmsg")
+d:del("tsgps")
+d:del("tgp")
+d:del("tcom")
+d:del("tblock")
+d:del("tusers")
+d:del("links")
+d:del("tbotmsg")
+tabchi.sendText(msg.chat_id_, msg.id_,1,' Stats TabChi Has Been Reseted ',1,'md')
+        print("Tabchi [ Message ]")
 
+end
 --[[if text == 'panel' and is_sudo(msg) then
 function Helper(code,lua)
           tdcli_function({
