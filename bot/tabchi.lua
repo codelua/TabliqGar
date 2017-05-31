@@ -360,6 +360,7 @@ local joinlink = (d:get('joinlink') or 'no')
 		end
 end
 end
+			end
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
