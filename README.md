@@ -1,4 +1,4 @@
-# [TabLiqGar V.1 ](https://telegram.me/CerNerTabliqGar)
+# [TabLiqGar V.3 ](https://telegram.me/CerNerTabliqGar)
 
 * * *
 
@@ -7,14 +7,14 @@
 ```sh
 cd $HOME
 git clone https://github.com/CodeLua/TabLiqGar.git
-cd TabliqGar
+cd TabLiqGar
 chmod +x install
 chmod +x start
 ./install
 ./start
 # سپس شماره و کد را ارسال کنید :)
 # اجرای اتولانچ:
-cd TabliqGar
+cd TabLiqGar
 chmod 777 screen
 chmod +x install
 ./install
