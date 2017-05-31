@@ -182,7 +182,6 @@ local id = d:get('apiid')
           for k,v in pairs(add) do
     tabchi.addChatMember(v, id,20)
   end
-end
 		if text == 'addmembers' and is_sudo(msg) then
   local pv = d:smembers("tusers")
   for i = 1, #pv do
@@ -348,8 +347,7 @@ if text == 'reload' and is_sudo(msg) then
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
-			end
-local joinlink = (d:get('joinlink') or 'no') 
+			local joinlink = (d:get('joinlink') or 'no') 
     if joinlink == 'yes' then
 	if text and text:match("https://telegram.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+")  or text and text:match("https://telegram.dog/joinchat/%S+") then
 		local text = text:gsub("t.me", "telegram.me")
@@ -361,7 +359,7 @@ local joinlink = (d:get('joinlink') or 'no')
 		end
 end
 end
-			
+	end		
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
