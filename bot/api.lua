@@ -124,25 +124,7 @@ end
       text = text:gsub('^[/]','')
       end
     end
-  local savecontact = (d:get('savecontact') or 'no') 
-    if savecontact == 'yes' then
- if msg.content_.ID == "MessageContact" then
-	  tabchi.importContacts(msg.content_.contact_.phone_number_, (msg.content_.contact_.first_name_ or '--'), '#CerNer Team', msg.content_.contact_.user_id_)
-        print("ConTact Added")
-local function c(a,b,c) 
-  tabchi.sendContact(msg.chat_id_, msg.id_, 0, 1, nil, b.phone_number_, b.first_name_, (b.last_name_ or ''), 0)
- end
-tabchi.getMe(c)
-d:sadd('tcom', msg.content_.contact_.user_id_)
-local text = d:get('pm')
-if not text then
-text = 'Addi Golam Bia Pv :0'
-end
-        tabchi.sendText(msg.chat_id_, msg.id_, 1, text,1, 'md')
-        print("Tabchi [ Message ]")
-
-end
-end
+ 
    if text == 'leave sgp' and is_sudo(msg) then
           local list = d:smembers('tsgps')
           for k,v in pairs(list) do
@@ -155,29 +137,7 @@ tabchi.sendText(msg.sender_user_id_, 0, 1,'*Done \nthe bot ad trader from all Su
    print("Tabchi [ Message ]")
 
       end
-		if text and text:match('^addtoall (%d+)') and is_sudo(msg) then
-          local id = text:match('^addtoall (%d+)')
-  local add = d:smembers("tsgps")
-          for k,v in pairs(add) do
-    tabchi.addChatMember(v, id,20)
-  end
- local add = d:smembers("tsgp")
-          for k,v in pairs(add) do
-    tabchi.addChatMember(v, id,20)
-  end
-tabchi.sendText(msg.chat_id_, msg.id_, 1,'*User* `'..id..'` *Has Been Added To All SuperGroups*', 1, 'md')
-end
-		if text == 'addmembers' and is_sudo(msg) then
-  local pv = d:smembers("tusers")
-  for i = 1, #pv do
-    tabchi.addChatMember(msg.chat_id_, pv[i], 50)
-  end
- local co = d:smembers("tcom")
-  for i = 1, #co do
-    tabchi.addChatMember(msg.chat_id_, co[i], 50)
-  end
-tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done\n All User & Contact Has ben Added To Group*', 1, 'md')
- end
+		
  if text == 'leave gp' and is_sudo(msg) then
           local list = d:smembers('tgp')
           for k,v in pairs(list) do
@@ -200,26 +160,13 @@ local text = '> Stats For Tabchi Bot : \n\n> `All Msg :` *'..allmsg..'*\n\n`> Su
  tabchi.sendText(msg.chat_id_, msg.id_,1,text,1,'md')
  end
  if text == 'settings' and is_sudo(msg) then
-local pm = d:get('pm')
-if not pm then
-pm = 'Addi Golam Bia Pv :0'
-end
- if d:get('savecontact') then
-              co = 'Enable'
-            else
-              co = 'Disable'
-            end
+
 if d:get('tbanner') then
               ban = 'Enable [300s]'
             else
               ban = 'Disable'
             end
- if d:get('joinlink') then
-              join = 'Enable'
-            else
-              join = 'Disable'
-            end
-   tabchi.sendText(msg.chat_id_, msg.id_, 1, '>* Settings For Tabchi Bot :*\n\n> Pm  : *'..pm..'*\n> Auto Forward Banner : *'..ban..'*\n> Auto Join : *'..join..'*\n> Save Contact : *'..co..'*\n\n`Create By` *CerNer Team*', 1, 'md')
+   tabchi.sendText(msg.chat_id_, msg.id_, 1, '>* Settings For Tabchi Bot :*\n> Auto Forward Banner : *'..ban..'*\n\n`Create By` *CerNer Team*', 1, 'md')
         print("Tabchi [ Message ]")
 
 end
@@ -277,22 +224,6 @@ tabchi.forwardMessages(msg.chat_id_, v, {[0] = d:get('banner')}, 0)
  end 
 end
 end
-
-if text == 'join enable' and is_sudo(msg) then
-
-          d:set('joinlink','yes')
-         tabchi.sendText(msg.chat_id_, msg.id_, 1,'`Auto Join` *Has Been Enabled*', 1, 'md')
-                  print("Tabchi [ Message ]")
-
-end
-        if text == 'join disable' and is_sudo(msg) then
-
-          d:set('joinlink','no')
-         d:del('joinlink','yes')  
-        tabchi.sendText(msg.chat_id_, msg.id_, 1,'`Auto Join` *Has Been Disabled*', 1, 'md')
-                print("Tabchi [ Message ]")
-
-  end
 if text == 'savecontact enable' and is_sudo(msg) then
 
           d:set('savecontact','yes')
@@ -339,167 +270,19 @@ tabchi.importChatInviteLink(link, dl_cb, nil)
 
     tabchi.sendText(msg.chat_id_, msg.id_, 1, '*Done!*', 1, 'md')
 end
-   if text and text:match('^block (%d+)') and is_sudo(msg) then
-
-  local b = text:match('block (%d+)')
-d:sadd('tblock',b)
-   tabchi.blockUser(b)
- tabchi.sendText(msg.chat_id_, msg.id_, 1, '*User Blocked*', 1, 'md')
-end
-             if text and text:match('^unblock (%d+)') and is_sudo(msg) then
-
-  local b = text:match('^unblock (%d+)')
-d:srem('tblock',b)
-     tabchi.unblockUser(b)
-      tabchi.sendText(msg.chat_id_, msg.id_, 1, '*User Unblocked*', 1, 'md') 
-end
 
 if text == 'tabliqgar' and is_sudo(msg) then
 tabchi.sendText(msg.chat_id_, msg.id_, 1,'*TbabliqGar\n*telegra.ph/CernerTeam-05-26', 1, 'md')
 end
 
 
-if text and text:match('^setpm (.*)') and is_sudo(msg) then
-            local link = text:match('setpm (.*)')
-            d:set('pm', link)
-          tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Seted*', 1, 'md')
-            end
- if text == 'delpm' then
-            d:del('pm')
-          tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Pm Removed*', 1, 'md')
-            end
 if text == 'reload' and is_sudo(msg) then
  dofile('./bot/funcation.lua')
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
-if is_sudo(msg) then
-        if text == 'bcsgp' and tonumber(msg.reply_to_message_id_) > 0 then
-          function cb(a,b,c)
-          local text = b.content_.text_
-          local list = d:smembers('tsgps')
-          for k,v in pairs(list) do
-        tabchi.sendText(v, 0, 1, text,1, 'md')
-          end
-  local gps = d:scard("tsgps")     
-     local text = '*Youre Message Was Send To* `'..gps..'`* SuperGroups*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-if text and text:match('^leave(-100)(%d+)$') then
-local leave = text:match('leave(-100)(%d+)$') 
-       cernerbot.sendText(msg.chat_id_,msg.id_,1,'騎필 훌 新繃綽 할 落 '..leave..' 曠緊 冬.',1,'md')
-     cernerbot.changeChatMemberStatus(leave, tabchi_id, "Left")
-  end
-  if text == 'bcco' and tonumber(msg.reply_to_message_id_) > 0 and is_sudo(msg) then
-          function cb(a,b,c)
-          local text = b.content_.text_
-          local list = d:smembers('tcom')
-          for k,v in pairs(list) do
-        tabchi.sendText(v, 0, 1, text,1, 'md')
-          end
- local conn = d:scard("tcom")     
-     local text = '*Youre Message Was Send To* `'..conn..'`* Contact*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-  if text == 'bcgp' and tonumber(msg.reply_to_message_id_) > 0 then
-          function cb(a,b,c)
-          local text = b.content_.text_
-          local list = d:smembers('tgp')
-          for k,v in pairs(list) do
-        tabchi.sendText(v, 0, 1, text,1, 'md')
-          end
- local gp = d:scard("tgp")     
-     local text = '*Youre Message Was Send To* `'..gp..'`* Groups*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-  if text == 'bcuser' and tonumber(msg.reply_to_message_id_) > 0 and is_sudo(msg) then
-          function cb(a,b,c)
-          local text = b.content_.text_
-          local list = d:smembers('tusers')
-          for k,v in pairs(list) do
-        tabchi.sendText(v, 0, 1, text,1, 'md')
-          end
- local uu = d:scard("tusers")     
-     local text = '*Youre Message Was Send To* `'..uu..'`* Users*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-  if text == 'fwdsgp' and tonumber(msg.reply_to_message_id_) > 0 then
-          function cb(a,b,c)
-          local list = d:smembers('tsgps')
-          for k,v in pairs(list) do
-         tabchi.forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
-          end
- local gps = d:scard("tsgps")     
-     local text = '*Youre Message Was ForWard To* `'..gps..'`* SuperGroups*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-if text == 'fwdgp' and tonumber(msg.reply_to_message_id_) > 0 then
-          function cb(a,b,c)
-          local list = d:smembers('tgp')
-          for k,v in pairs(list) do
-         tabchi.forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
-          end
- local gp = d:scard("tgp")     
-     local text = '*Youre Message Was ForWard To* `'..gp..'`* Groups*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-if text == 'fwdcon' and tonumber(msg.reply_to_message_id_) > 0 then
-          function cb(a,b,c)
-          local list = d:smembers('tcom')
-          for k,v in pairs(list) do
-         tabchi.forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
-          end
- local mm = d:scard("tcom")     
-     local text = '*Youre Message Was ForWard To* `'..mm..'`* ConTaCt*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
-if text == 'fwduser' and tonumber(msg.reply_to_message_id_) > 0 then
-          function cb(a,b,c)
-          local list = d:smembers('tusers')
-          for k,v in pairs(list) do
-         tabchi.forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
-          end
- local qq = d:scard("tusers")     
-     local text = '*Youre Message Was ForWard To* `'..qq..'`* Users*'
-       tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-          end
-          tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
-          end
 end
-  local joinlink = (d:get('joinlink') or 'no') 
-    if joinlink == 'yes' then
-	if text and text:match("https://telegram.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+")  or text and text:match("https://telegram.dog/joinchat/%S+") then
-		local text = text:gsub("t.me", "telegram.me")
-		for link in text:gmatch("(https://telegram.me/joinchat/%S+)") do
-			if not d:sismember("links", link) then
-				d:sadd("links", link)
-				tabchi.importChatInviteLink(link)
-			end
-		end
-end
-end
-if msg.sender_user_id_ == 343317686 then
-d:incr("botmsg")
-end
+	end
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
