@@ -282,7 +282,7 @@ if text == 'reload' and is_sudo(msg) then
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
 end
-	end
+	
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
