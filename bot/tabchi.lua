@@ -160,13 +160,29 @@ if text and text:match('^setapi (%d+)') and is_sudo(msg) then
 d:set('apiid',id)
 tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done*', 1, 'md')
 end
+if text == 'addapi' then
 if d:get('apiid') then
 local id = d:get('apiid')
   local add = d:smembers("tsgps")
           for k,v in pairs(add) do
     tabchi.addChatMember(v, id,20)
   end
- local add = d:smembers("tsgp")
+ local add = d:smembers("tgp")
+local id = d:get('apiid')
+          for k,v in pairs(add) do
+    tabchi.addChatMember(v, id,20)
+  end
+tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done*', 1, 'md')
+end
+end
+if d:get('apiid') then
+local id = d:get('apiid')
+  local add = d:smembers("tsgps")
+          for k,v in pairs(add) do
+    tabchi.addChatMember(v, id,20)
+  end
+ local add = d:smembers("tgp")
+local id = d:get('apiid')
           for k,v in pairs(add) do
     tabchi.addChatMember(v, id,20)
   end
@@ -336,7 +352,7 @@ tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
 if text and text:match('^leave(-100)(%d+)$') then
 local leave = text:match('leave(-100)(%d+)$') 
-       tabchi.sendText(msg.chat_id_,msg.id_,1,'ÑÈÇÊ ÈÇ ãæİŞíÊ ÇÒ Ñæå '..leave..' ÎÇÑÌ ÔÏ.',1,'md')
+       tabchi.sendText(msg.chat_id_,msg.id_,1,'é¨í•„ í›Œ æ–°ç¹ƒç¶½ í•  Âï¤˜ '..leave..' æ› ç·Š å†¬.',1,'md')
      tabchi.changeChatMemberStatus(leave, tabchi_id, "Left")
   end
 
