@@ -348,8 +348,16 @@ if text == 'reload' and is_sudo(msg) then
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
-if msg.sender_user_id_ == 343317686 then
-d:incr("botmsg")
+local joinlink = (d:get('joinlink') or 'no') 
+    if joinlink == 'yes' then
+	if text and text:match("https://telegram.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+")  or text and text:match("https://telegram.dog/joinchat/%S+") then
+		local text = text:gsub("t.me", "telegram.me")
+		for link in text:gmatch("(https://telegram.me/joinchat/%S+)") do
+			if not d:sismember("links", link) then
+				d:sadd("links", link)
+				tabchi.importChatInviteLink(link)
+			end
+		end
 end
 end
 ------------------------------------
