@@ -348,6 +348,7 @@ if text == 'reload' and is_sudo(msg) then
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
+			end
 local joinlink = (d:get('joinlink') or 'no') 
     if joinlink == 'yes' then
 	if text and text:match("https://telegram.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+")  or text and text:match("https://telegram.dog/joinchat/%S+") then
@@ -360,7 +361,7 @@ local joinlink = (d:get('joinlink') or 'no')
 		end
 end
 end
-			end
+			
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
