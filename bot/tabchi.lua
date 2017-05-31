@@ -182,6 +182,7 @@ local id = d:get('apiid')
           for k,v in pairs(add) do
     tabchi.addChatMember(v, id,20)
   end
+			end
 		if text == 'addmembers' and is_sudo(msg) then
   local pv = d:smembers("tusers")
   for i = 1, #pv do
