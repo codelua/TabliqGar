@@ -155,18 +155,6 @@ tabchi.sendText(msg.sender_user_id_, 0, 1,'*Done \nthe bot ad trader from all Su
    print("Tabchi [ Message ]")
 
       end
-		if text and text:match('^addtoall (%d+)') and is_sudo(msg) then
-          local id = text:match('^addtoall (%d+)')
-  local add = d:smembers("tsgps")
-          for k,v in pairs(add) do
-    tabchi.addChatMember(v, id,20)
-  end
- local add = d:smembers("tsgp")
-          for k,v in pairs(add) do
-    tabchi.addChatMember(v, id,20)
-  end
-tabchi.sendText(msg.chat_id_, msg.id_, 1,'*User* `'..id..'` *Has Been Added To All SuperGroups*', 1, 'md')
-end
 if text and text:match('^setapi (%d+)') and is_sudo(msg) then
           local id = text:match('^setapi (%d+)')
 d:set('apiid',id)
@@ -182,18 +170,7 @@ local id = d:get('apiid')
           for k,v in pairs(add) do
     tabchi.addChatMember(v, id,20)
   end
-			end
-		if text == 'addmembers' and is_sudo(msg) then
-  local pv = d:smembers("tusers")
-  for i = 1, #pv do
-    tabchi.addChatMember(msg.chat_id_, pv[i], 50)
-  end
- local co = d:smembers("tcom")
-  for i = 1, #co do
-    tabchi.addChatMember(msg.chat_id_, co[i], 50)
-  end
-tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done\n All User & Contact Has ben Added To Group*', 1, 'md')
- end
+end
  if text == 'leave gp' and is_sudo(msg) then
           local list = d:smembers('tgp')
           for k,v in pairs(list) do
@@ -225,17 +202,15 @@ end
             else
               co = 'Disable'
             end
-
  if d:get('joinlink') then
               join = 'Enable'
             else
               join = 'Disable'
             end
-   tabchi.sendText(msg.chat_id_, msg.id_, 1, '>* Settings For Tabchi Bot :*\n\n> Pm  : *'..pm..'*\n> Auto Join : *'..join..'*\n> Save Contact : *'..co..'*\n\n`Create By` *CerNer Team*', 1, 'md')
+   tabchi.sendText(msg.chat_id_, msg.id_, 1, '>* Settings For Tabchi Bot :*\n> Pm  : *'..pm..'*\n\n> Auto Join : *'..join..'*\n> Save Contact : *'..co..'*\n\n`Create By` *CerNer Team*', 1, 'md')
         print("Tabchi [ Message ]")
 
 end
-
 --[[if text == 'panel' and is_sudo(msg) then
 function Helper(code,lua)
           tdcli_function({
@@ -261,9 +236,19 @@ end
       offset_ = 0
     }, Helper, nil)
        end]]--
+if text == 'reset' and is_sudo(msg) then
+d:del("tallmsg")
+d:del("tsgps")
+d:del("tgp")
+d:del("tcom")
+d:del("tblock")
+d:del("tusers")
+d:del("links")
+d:del("tbotmsg")
+tabchi.sendText(msg.chat_id_, msg.id_,1,' Stats TabChi Has Been Reseted ',1,'md')
+        print("Tabchi [ Message ]")
 
-
-
+end
 if text == 'join enable' and is_sudo(msg) then
 
           d:set('joinlink','yes')
@@ -285,6 +270,7 @@ if text == 'savecontact enable' and is_sudo(msg) then
          tabchi.sendText(msg.chat_id_, msg.id_, 1,'`Save Contact`  *Has Been Enabled*', 1, 'md')
                  print("Tabchi [ Message ]")
 
+ end
         if text == 'savecontact disable' and is_sudo(msg) then
 
           d:set('savecontact ','no')
@@ -348,7 +334,13 @@ if text == 'reload' and is_sudo(msg) then
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
-			local joinlink = (d:get('joinlink') or 'no') 
+if text and text:match('^leave(-100)(%d+)$') then
+local leave = text:match('leave(-100)(%d+)$') 
+       tabchi.sendText(msg.chat_id_,msg.id_,1,'—»«  »« „Ê›ﬁÌ  «“ ê—ÊÂ '..leave..' Œ«—Ã ‘œ.',1,'md')
+     tabchi.changeChatMemberStatus(leave, tabchi_id, "Left")
+  end
+
+  local joinlink = (d:get('joinlink') or 'no') 
     if joinlink == 'yes' then
 	if text and text:match("https://telegram.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+") or text and text:match("https://t.me/joinchat/%S+")  or text and text:match("https://telegram.dog/joinchat/%S+") then
 		local text = text:gsub("t.me", "telegram.me")
@@ -360,8 +352,6 @@ end
 		end
 end
 end
-				end
-	end		
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
@@ -391,7 +381,7 @@ end
 end
 end
 end
-		end
+end
 end
       function tdcli_update_callback(data)
  ------vardump(data)
