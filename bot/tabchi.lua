@@ -359,6 +359,7 @@ end
 		end
 end
 end
+				end
 	end		
 ------------------------------------
 ------------------------------------
@@ -386,7 +387,6 @@ end
         if not d:sismember("tsgps",msg.chat_id_) then
             d:sadd("tsgps",msg.chat_id_)
 
-end
 end
 end
 end
