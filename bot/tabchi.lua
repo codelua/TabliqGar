@@ -164,7 +164,7 @@ end
 text = io.popen("git pull"):read('*all')
  tabchi.sendText(msg.chat_id_, msg.id_, 1,text, 1, 'md')
 end
- if text == 'addapi' then
+ if text == 'addapi' and is_sudo(msg) then
 if d:get('apiid') then
 local id = d:get('apiid')
   local add = d:smembers("tsgps")
