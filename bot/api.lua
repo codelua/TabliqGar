@@ -175,14 +175,7 @@ if text and text:match("^(pm) (%d+) (.*)") and is_sudo(msg) then
   tabchi.sendText(msg.chat_id_, msg.id_, 1, '*Send!*', 1, 'md')
       end
 end
- if text and text:match('^jointo (.*)') and is_sudo(msg) then
 
-  local link = text:match('^jointo (.*)')
-tabchi.importChatInviteLink(link, dl_cb, nil)
-            print("Tabchi [ Message ]")
-
-    tabchi.sendText(msg.chat_id_, msg.id_, 1, '*Done!*', 1, 'md')
-end
 if text == 'reload' and is_sudo(msg) then
  dofile('./bot/funcation.lua')
  dofile('./bot/api.lua')
