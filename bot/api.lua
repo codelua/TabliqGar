@@ -202,7 +202,7 @@ if is_sudo(msg) then
           for k,v in pairs(list) do
         tabchi.sendText(v, 0, 1, text,1, 'md')
           end
-   local gps = d:scard("asgps")     
+   local gps = d:scard("asgp")     
      local text = '*Youre Message Was Send To* `'..gps..'`* SuperGroups*'
        tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
           end
@@ -235,13 +235,13 @@ local uu = d:scard("ausers")
           end
           tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
           end
-  if text == 'fwdsgps' and tonumber(msg.reply_to_message_id_) > 0 then
+  if text == 'fwdsgp' and tonumber(msg.reply_to_message_id_) > 0 then
           function cb(a,b,c)
           local list = d:smembers('asgp')
           for k,v in pairs(list) do
          tabchi.forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
           end
-local gps = d:scard("asgps")     
+local gps = d:scard("asgp")     
      local text = '*Youre Message Was ForWard To* `'..gps..'`* SuperGroups*'
        tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 
