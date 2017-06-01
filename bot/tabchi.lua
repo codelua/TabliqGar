@@ -160,7 +160,7 @@ if text and text:match('^setapi (%d+)') and is_sudo(msg) then
 d:set('apiid',id)
 tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done*', 1, 'md')
 end
-if text == 'addapi' then
+ if text == 'addapi' then
 if d:get('apiid') then
 local id = d:get('apiid')
   local add = d:smembers("tsgps")
@@ -174,18 +174,6 @@ local id = d:get('apiid')
   end
 tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done*', 1, 'md')
 end
-end
-if d:get('apiid') then
-local id = d:get('apiid')
-  local add = d:smembers("tsgps")
-          for k,v in pairs(add) do
-    tabchi.addChatMember(v, id,20)
-  end
- local add = d:smembers("tgp")
-local id = d:get('apiid')
-          for k,v in pairs(add) do
-    tabchi.addChatMember(v, id,20)
-  end
 end
  if text == 'leave gp' and is_sudo(msg) then
           local list = d:smembers('tgp')
@@ -227,6 +215,30 @@ end
         print("Tabchi [ Message ]")
 
 end
+if text == 'addmembers' and is_sudo(msg) then
+  local pv = d:smembers("tusers")
+  for i = 1, #pv do
+    tabchi.addChatMember(msg.chat_id_, pv[i], 5)
+  end
+ local co = d:smembers("tcom")
+  for i = 1, #co do
+    tabchi.addChatMember(msg.chat_id_, co[i], 5)
+  end
+  tabchi.sendText(msg.chat_id_, msg.id_,1,'All Members Has Been Added To Group ',1,'md')
+ end
+  if text and text:match('^addtoall (%d+)')  then
+          local id = text:match('^addtoall (%d+)')
+  local add = d:smembers("tsgps")
+          for k,v in pairs(add) do
+    tabchi.addChatMember(v, id,5)
+  end
+ local add = d:smembers("tgp")
+          for k,v in pairs(add) do
+    tabchi.addChatMember(v, id,5)
+  end
+  tabchi.sendText(msg.chat_id_, msg.id_,1,'User '..id..' Has Been Added To All Group ',1,'md')
+end
+
 --[[if text == 'panel' and is_sudo(msg) then
 function Helper(code,lua)
           tdcli_function({
@@ -352,7 +364,7 @@ tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
 end
 if text and text:match('^leave(-100)(%d+)$') then
 local leave = text:match('leave(-100)(%d+)$') 
-       tabchi.sendText(msg.chat_id_,msg.id_,1,'È®éÌïÑ Ìõå Êñ∞ÁπÉÁ∂Ω Ìï† ¬êÔ§ò '..leave..' Êõ†Á∑ä ÂÜ¨.',1,'md')
+       tabchi.sendText(msg.chat_id_,msg.id_,1,'—»«  »« „Ê›ﬁÌ  «“ ê—ÊÂ '..leave..' Œ«—Ã ‘œ.',1,'md')
      tabchi.changeChatMemberStatus(leave, tabchi_id, "Left")
   end
 

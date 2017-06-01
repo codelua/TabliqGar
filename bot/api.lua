@@ -182,14 +182,15 @@ tabchi.importChatInviteLink(link, dl_cb, nil)
 end
 if text == 'reload' and is_sudo(msg) then
  dofile('./bot/funcation.lua')
- dofile('./bot/tabchi.lua')
-tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
+ dofile('./bot/api.lua')
+tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi Api BOT Reloaded*',1,'md')
 end
+
 if text == 'panel' and is_sudo(msg) then
 local gps = d:scard("asgp") or 0
 local user = d:scard("ausers")
 local gp = d:scard("agp") or 0
-local allmsg = d:get("tallmsg") or 0
+local allmsg = d:get("aallmsg") or 0
 local text = '> Stats For Tabchi Bot Api : \n\n> `All Msg :` *'..allmsg..'*\n\n`> SuperGroup  :`* '..gps..'*\n\n`> Group  :` *'..gp..'*`\n\n> Users : `*'..user..'*\n\n> `Create By` *CerNer Team*'
  tabchi.sendText(msg.chat_id_, msg.id_,1,text,1,'md')
  end
@@ -202,7 +203,7 @@ if is_sudo(msg) then
         tabchi.sendText(v, 0, 1, text,1, 'md')
           end
   local gps = d:scard("asgp") or 0       
-     text = 'íÇã ÔãÇ Èå : '..gps..'\nÇÑÓÇá ÔÏ...!'
+     text = 'DONE'
        tabchi.sendText(msg.chat_id_, msg.id_, 1, text, 1, 'html')
           end
           tabchi.getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
@@ -259,7 +260,7 @@ if text == 'fwduser' and tonumber(msg.reply_to_message_id_) > 0 then
 end
 ------------------------------------
 ------------------------------------
-d:incr("tallmsg")
+d:incr("aallmsg")
 ------------------------------------
  if msg.chat_id_ then
       local id = tostring(msg.chat_id_)
