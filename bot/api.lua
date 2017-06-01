@@ -159,10 +159,7 @@ d:del("tusers")
 tabchi.sendText(msg.chat_id_, msg.id_,1,' Stats TabChi Has Been Reseted ',1,'md')
         print("Tabchi [ Message ]")
 end
-if text == 'git pull' and is_sudo(msg) then
-text = io.popen("git fetch --all && git reset --hard origin/master && git pull origin master "):read('*all')
- tabchi.sendText(msg.chat_id_, msg.id_, 1,text, 1, 'md')
-end
+
 		 if text and text:match('^setname (.*)') and is_sudo(msg) then
           local name = text:match('^setname (.*)')
 		  tabchi.changeName(name, '')
