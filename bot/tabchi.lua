@@ -193,6 +193,8 @@ tabchi.sendText(msg.sender_user_id_, 0, 1,'*Done \nthe bot ad trader from all gr
           local name = text:match('^setname (.*)')
 		  tabchi.changeName(name, '')
 		       local text = '*Name Changed To* `'..name..'`'
+			 tabchi.sendText(msg.chat_id_, msg.id_, 1,text, 1, 'md')
+
 
 		  end
 if text == 'panel' and is_sudo(msg) then
