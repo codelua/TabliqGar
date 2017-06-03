@@ -22,8 +22,9 @@ screen ./screen
 ```
 #نصب ربات api
 
-```sh 
-nohup ./tg -s ./bot/api.lua -p PROFILE --bot=توکن ربات شما
+```sh
+ابتدا توکن ربات خود را در فایل apistart در خط 4 قرار دهید و سپس دستور زیر را وارد کنید 
+nohup ./apistart
 ```
 ### نصب آسان
 ```sh
