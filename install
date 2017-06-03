@@ -27,7 +27,7 @@ chmod +x start
 chmod +x tg
 chmod +x screen
 chmod +x bot
-chmod +x apitart
+chmod +x apistart
 RED='\033[0;31m'
 NC='\033[0m'
 CYAN='\033[0;36m'
