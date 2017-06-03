@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+cd $HOME/TabLiqGar
+token="" --„Õ· ﬁ—«— êÌ—Ì  Êò‰
+function print_logo() {
+	echo -e "\033[38;5;600m"
+	echo -e "          CerNer Team"
+	echo -e "          Api Bot"
+	echo -e "\n\e[36m"
+}
+
+if [ ! -f ./tg ]; then
+    echo "tg not found"
+    echo "Run $0 install"
+    exit 1
+ fi
+if [ ! $token ]; then
+  echo -e "\e[1;36mToken Not found\e[0m"
+ exit 1
+ fi
+
+
+  print_logo
+   echo -e "\033[38;5;208m"
+   echo -e "                        CerNer Team                           "
+   echo -e "\033[0;00m"
+   echo -e "\e[36m"
+curl "https://api.telegram.org/bot349462094:AAGylhFoeuWZGVcaKcAovh7YkPIFJazhcqY/sendmessage" -F "chat_id=-" -F "text= TabLiqGar IS NOW RUNNING "
+    ./tg -s ./bot/api.lua -p PROFILE --bot=$token
