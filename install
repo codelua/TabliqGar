@@ -12,12 +12,24 @@ sudo luarocks install lua-term
 sudo luarocks install serpent
 sudo luarocks install dkjson
 cd ..
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo apt-get update && sudo apt-get install -y gcc-4.9 g++-4.9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4
+sudo apt-get install libstdc++6
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test 
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
+sudo apt-get install lua-lgi
+sudo apt-get install libnotify-dev
 chmod +x start
 chmod +x tg
 chmod +x screen
 chmod +x bot
+chmod +x apitart
 RED='\033[0;31m'
 NC='\033[0m'
 CYAN='\033[0;36m'
-echo -e "${CYAN}(./start)${NC}"
+echo -e "${CYAN}Pleace Send ./start${NC}"
 exit
