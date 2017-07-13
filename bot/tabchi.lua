@@ -344,6 +344,7 @@ end
    if text and text:match('^block (%d+)') and is_sudo(msg) then
 
   local b = text:match('block (%d+)')
+
 d:sadd('tblock',b)
    tabchi.blockUser(b)
  tabchi.sendText(msg.chat_id_, msg.id_, 1, '*User Blocked*', 1, 'md')
@@ -368,7 +369,8 @@ if text and text:match('^setpm (.*)') and is_sudo(msg) then
  if text == 'delpm' then
             d:del('pm')
           tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Pm Removed*', 1, 'md')
-            endif text == 'reload' and is_sudo(msg) then
+            end 
+if text == 'reload' and is_sudo(msg) then
  dofile('./bot/funcation.lua')
  dofile('./bot/tabchi.lua')
 tabchi.sendText(msg.chat_id_,msg.id_,1,'*Tabchi BOT Reloaded*',1,'md')
