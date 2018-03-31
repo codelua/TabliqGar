@@ -3,7 +3,7 @@
 cd $HOME/TabLiqGar
 token="" #Token Your Bot api
 function print_logo() {
-	echo -e "\033[38;5;600m"
+	echo -e "595009042:AAHgtNyjxn8s4dj3yt_QptWN_2HvvgYB0A0"
 	echo -e "          CerNer Team"
 	echo -e "          Api Bot"
 	echo -e "\n\e[36m"
