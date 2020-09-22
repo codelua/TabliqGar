@@ -1,5 +1,5 @@
 tabchi = dofile('./bot/funcation.lua')
-tabchi_id = 343317686
+tabchi_id = 729930177
 ---------------------------------
 
 json = dofile('./libs/JSON.lua')
